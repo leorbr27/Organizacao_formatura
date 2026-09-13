@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Formatura — Central de Decisões</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <div class="eyebrow">TÉCNICO DE ENFERMAGEM</div>
+    <h1>Central da Formatura</h1>
+    <p>Decisões, votações, pendências e histórico em um só lugar.</p>
+  </div>
+  <button id="btnNew" class="primary">+ Novo tópico</button>
+</header>
+
+<main class="container">
+  <section class="stats" id="stats"></section>
+
+  <section class="toolbar">
+    <input id="search" placeholder="🔎 Buscar tópico, decisão ou categoria...">
+    <select id="statusFilter">
+      <option value="">Todos os status</option>
+      <option value="draft">Rascunho</option>
+      <option value="voting">Em votação</option>
+      <option value="approved">Aprovado</option>
+      <option value="rejected">Rejeitado</option>
+      <option value="archived">Arquivado</option>
+    </select>
+    <select id="categoryFilter"><option value="">Todas as categorias</option></select>
+  </section>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="all">📋 Tópicos</button>
+    <button class="tab" data-tab="voting">🗳️ Votações</button>
+    <button class="tab" data-tab="approved">📜 Decisões oficiais</button>
+    <button class="tab" data-tab="pending">⚠️ Pendências</button>
+  </div>
+
+  <section id="topics"></section>
+</main>
+
+<dialog id="topicDialog">
+  <form id="topicForm" method="dialog">
+    <button type="button" class="close" id="closeDialog">×</button>
+    <h2 id="dialogTitle">Novo tópico</h2>
+    <label>Título<input id="title" required maxlength="160"></label>
+    <label>Categoria<input id="category" required maxlength="80" placeholder="Ex.: Professores"></label>
+    <label>Tipo
+      <select id="topicType">
+        <option value="decision">📌 Decisão</option>
+        <option value="information">ℹ️ Informação</option>
+        <option value="suggestion">💡 Sugestão</option>
+        <option value="task">📋 Tarefa</option>
+      </select>
+    </label>
+    <label>Statement / conteúdo da proposta<textarea id="statement" required rows="6" placeholder="Escreva exatamente aquilo que será aprovado ou rejeitado."></textarea></label>
+    <label>Prioridade
+      <select id="priority"><option value="high">🔴 Alta</option><option value="medium" selected>🟡 Média</option><option value="low">🟢 Baixa</option></select>
+    </label>
+    <button class="primary full" type="submit">Salvar tópico</button>
+  </form>
+</dialog>
+
+<dialog id="viewDialog">
+  <div id="viewContent"></div>
+  <button class="secondary full" id="closeView">Fechar</button>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
