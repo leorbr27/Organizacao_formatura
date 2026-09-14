@@ -3,15 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Formatura — Central de Decisões</title>
+  <title>Organização da Formatura — ETeses</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="topbar">
-  <div>
-    <div class="eyebrow">TÉCNICO DE ENFERMAGEM</div>
-    <h1>Central da Formatura</h1>
-    <p>Decisões, votações, pendências e histórico em um só lugar.</p>
+  <div class="brand">
+    <img src="eteses.png" alt="ETeses" class="logo">
+    <div class="brand-divider"></div>
+    <div>
+      <div class="eyebrow">ETeses</div>
+      <h1>Organização da Formatura</h1>
+      <p>Técnico de Enfermagem</p>
+    </div>
   </div>
   <button id="btnNew" class="primary">+ Novo tópico</button>
 </header>
@@ -45,6 +49,7 @@
 <dialog id="topicDialog">
   <form id="topicForm" method="dialog">
     <button type="button" class="close" id="closeDialog">×</button>
+    <div class="dialog-brand"><img src="eteses.png" alt="ETeses"></div>
     <h2 id="dialogTitle">Novo tópico</h2>
     <label>Título<input id="title" required maxlength="160"></label>
     <label>Categoria<input id="category" required maxlength="80" placeholder="Ex.: Professores"></label>
@@ -66,7 +71,7 @@
 
 <dialog id="viewDialog">
   <div id="viewContent"></div>
-  <button class="secondary full" id="closeView">Fechar</button>
+  <button class="secondary full close-view" id="closeView">Fechar</button>
 </dialog>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
